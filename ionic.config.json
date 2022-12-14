@@ -1,0 +1,7 @@
+{
+  "name": "ionic-bnb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
