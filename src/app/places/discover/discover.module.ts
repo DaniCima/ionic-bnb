@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { DiscoverPageRoutingModule } from './discover-routing.module';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DiscoverPage } from './discover.page';
 
 @NgModule({
@@ -13,8 +13,9 @@ import { DiscoverPage } from './discover.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DiscoverPageRoutingModule
+    DiscoverPageRoutingModule,
+    ScrollingModule,
   ],
-  declarations: [DiscoverPage]
+  declarations: [DiscoverPage],
 })
 export class DiscoverPageModule {}
