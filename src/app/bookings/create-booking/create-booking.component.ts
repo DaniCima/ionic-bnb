@@ -1,4 +1,3 @@
-import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
@@ -46,19 +45,21 @@ export class CreateBookingComponent implements OnInit {
   }
 
   onBookPlace() {
-    if (!this.form.valid || !this.datesValid)
-      this.modalCtrl.dismiss(
-        {
-          bookingData: {
-            firstName: this.form.value['first-name'],
-            lastName: this.form.value['last-name'],
-            guestNumber: this.form.value['guest-number'],
-            startDat: this.form.value['date-from'],
-            endDat: this.form.value['date-to'],
-          },
+    if (!this.form.valid || !this.datesValid) {
+      return;
+    }
+    this.modalCtrl.dismiss(
+      {
+        bookingData: {
+          firstName: this.form.value['first-name'],
+          lastName: this.form.value['last-name'],
+          guestNumber: +this.form.value['guest-number'],
+          startDate: new Date(this.form.value['date-from']),
+          endDate: new Date(this.form.value['date-to']),
         },
-        'confirm'
-      );
+      },
+      'confirm'
+    );
     console.log(this.form.value);
   }
 
